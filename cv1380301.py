@@ -48,25 +48,25 @@ def main():
 
             if angle is not None:
                 cv2.putText(frame, 
-                            f"Угол: {angle:.2f}",
+                            f"Angle: {angle:.2f}",
                             (20, 80),
                             cv2.FONT_HERSHEY_SIMPLEX,
                             0.8, (0, 255, 0), 2)
 
         # вывод данных QR
-        if data:
+        """if data:
             cv2.putText(frame, f"Data: {data}",
                         (20, 50),
                         cv2.FONT_HERSHEY_SIMPLEX,
-                        0.7, (0, 255, 0), 2)
+                        0.7, (0, 255, 0), 2)"""
 
         # режим без коррекции
-        cv2.putText(frame, "Режим: Без коррекции",
+        cv2.putText(frame, "Mode: No perspective correction",
                     (20, 30),
                     cv2.FONT_HERSHEY_SIMPLEX,
-                    0.8, (0, 0, 255), 2)
+                    0.8, (255, 0, 255), 2)
 
-        cv2.imshow("QR Сканнер", frame)
+        cv2.imshow("QR Scanner", frame)
 
         if cv2.waitKey(1) & 0xFF == 27:  # ESCAPE
             break
