@@ -78,8 +78,8 @@ def main():
 
         data, bbox, _ = detector.detectAndDecode(frame)
 
-        cv2.putText(frame, "Режим: с коррекцией", (10, 30),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+        cv2.putText(frame, "Mode: perspective correction", (10, 30),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 255), 2)
 
         if bbox is not None:
             bbox = bbox.astype(np.float32)
@@ -101,17 +101,17 @@ def main():
 
             angle = estimate_angle(rect)
 
-            text = f"Data: {data}" if data else "Data: ---"
+            text = f"Data: {data}" if data else "Data: None"
 
             cv2.putText(frame, text, (10, 60),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 
-            cv2.putText(frame, f"Угол: {angle:.2f}", (10, 90),
+            cv2.putText(frame, f"Angle: {angle:.2f}", (10, 90),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 
-            cv2.imshow("Скоректированный QR", corrected)
+            cv2.imshow("Corrected QR", corrected)
 
-        cv2.imshow("QR Сканнер", frame)
+        cv2.imshow("QR Scanner", frame)
 
         if cv2.waitKey(1) == 27: # ESCAPE
             break
